@@ -434,15 +434,15 @@ def partition(arr, low, high):
 
 
 
-def search_room():
-    room_number = int(input("Seacrh Room Number: "))
+def search_room(): #if you want to pass parameter delete below code and add to parameter instead อ่านอังกฤษเอานะ ขก เขียนไทย
+    room_number = int(input("Seacrh Room Number: ")) # delete this if you dont want it
     
     leaf = bplustree.find(room_number) #Function that this Tree already give so use it why not only BigO (log N) :D
     if room_number in leaf.keys:
         print (f"Room {room_number} exists in the tree.")  #print for DEBUG you can delete if you want
         return True #Return if room already in tree
     else:
-        print (f"Room {room_number} does not exist in the tree.")
+        print (f"Room {room_number} does not exist in the tree.") #for DEBUG you can delete
         return False #Return if room is not in tree
 
 def show_available_rooms():
@@ -450,12 +450,12 @@ def show_available_rooms():
     room = bplustree.inorder_leaf() #list that contain number of Room from leaf inorder that only get leaf
     
     count = 0 #count availible room in tree
-    if room[0] != 0:
+    if room[0] != 0: #I dont know that do we still have room number 0 or not if not delete this for me thank you
         count += 1
     
     for i in range (len(room)-1): #sadly it has to be BigO (N) D;
         if room[i+1] - room[i] > 1:
-            count += room[i+1] - room[i]-1
+            count += room[i+1] - room[i]-1 
     
     return count
             
@@ -477,11 +477,11 @@ def manage_command():
         return True
     elif command == 'C':
         return False
-    elif command == "S":
+    elif command == "S":   # in tree or not in tree
         search_room()
         return True
     elif command == "A":
-        print(show_available_rooms())
+        print(show_available_rooms()) # integer <3
         return True
 
 if __name__ == '__main__':
